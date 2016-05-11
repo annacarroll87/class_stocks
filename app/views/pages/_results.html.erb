@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-xs-12 col-md-8">
+		<% posts["statuses"].each do |post| %>
+			<ul>
+			  <li><%= post["text"] %></br></li>
+			  <li><%= post["user"]["name"] %></br></li>
+
+			  <li><%= image_tag post["user"]["profile_image_url"], size: "25x25" %></br></li>
+			  <% if post["entities"]["media"].present?%>
+			    <li><%= image_tag post["entities"]["media"][0]["media_url"] %></br></li>
+			  <% end %>
+			</ul>
+		<% end %>
+  </div>
+
+  <div class="col-xs-6 col-md-4">
+		<div class="panel panel-success">
+			<% stocks.each do |stock| %>
+		  <ul>
+		  	<li><%= stock["ask"] %></li>
+
+	  	</ul>
+	  	<% end %>
+		</div>
+  </div>
+</div>
+
+
+
+

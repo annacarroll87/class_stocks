@@ -1,0 +1,8 @@
+<%= form_for @search, url: pages_path, remote: true do |f| %>
+  Query: <%= f.text_field :query %><br />
+  <%= f.submit %>
+<% end %>
+
+<div id="results">
+
+</div>
