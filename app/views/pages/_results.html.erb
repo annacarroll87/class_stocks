@@ -1,28 +1,63 @@
-<div class="row">
-  <div class="col-xs-12 col-md-8">
-		<% posts["statuses"].each do |post| %>
-			<ul>
-			  <li><%= post["text"] %></br></li>
-			  <li><%= post["user"]["name"] %></br></li>
+<div class="container">
+	<div class="row">
+	  <div class="col-md-10">
+			<% posts["statuses"].each do |post| %>
+			  <div class="well">
+				  <p><%= post["text"] %></p>
+				  <p><%= post["user"]["name"] %></p>
 
-			  <li><%= image_tag post["user"]["profile_image_url"], size: "25x25" %></br></li>
-			  <% if post["entities"]["media"].present?%>
-			    <li><%= image_tag post["entities"]["media"][0]["media_url"] %></br></li>
-			  <% end %>
-			</ul>
-		<% end %>
-  </div>
+				  <p><%= image_tag post["user"]["profile_image_url"], size: "25x25" %></p>
+				  <% if post["entities"]["media"].present?%>
+				    <p><%= image_tag post["entities"]["media"][0]["media_url"] %></p>
+				  <% end %>
+			  </div>
+			<% end %>
+	  </div>
 
-  <div class="col-xs-6 col-md-4">
-		<div class="panel panel-success">
+
+	  <div class="col-md-2">
 			<% stocks.each do |stock| %>
-		  <ul>
-		  	<li><%= stock["ask"] %></li>
+	     
+				<div class="panel panel-success text-center">
+			  	<div class="panel-heading">
+			  		<h3 class="panel-title">Ask:</h3>
+		  		</div>
+			  	<div class="panel-body"><%= stock["ask"] %></div>
+			  </div>
 
-	  	</ul>
-	  	<% end %>
-		</div>
-  </div>
+			 <div class="panel panel-success text-center">
+			  	<div class="panel-heading">
+			  		<h3 class="panel-title">Bid:</h3>
+		  		</div>
+			  	<div class="panel-body"><%= stock["bid"] %></div>
+			  </div>
+
+			 <div class="panel panel-success text-center">
+			  	<div class="panel-heading">
+			  		<h3 class="panel-title"> Change:</h3>
+		  		</div>
+			  	<div class="panel-body"><%= stock["change"] %></div>
+			  </div>
+
+		    <div class="panel panel-success text-center">
+			  	<div class="panel-heading">
+			  		<h3 class="panel-title">Market Cap:</h3>
+		  		</div>
+			  	<div class="panel-body"><%= stock["market_capitalization"] %>
+			  	</div>
+			  </div>
+
+		    <div class="panel panel-success text-center">
+			  	<div class="panel-heading">
+			  		<h3 class="panel-title">Earnings Per Share:</h3>
+		  		</div>
+			  	<div class="panel-body"><%= stock["earnings_per_share"] %>
+			  	</div>
+			  </div>
+
+		  <% end %>
+	    </div>
+	</div>
 </div>
 
 
